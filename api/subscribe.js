@@ -10,12 +10,12 @@ export default async function handler(req, res) {
     const payload = req.body || {};
     const formData = payload.data || payload;
 
+    // 👇 On cherche maintenant "mail" au lieu de "email"
     const email =
-      formData.email ||
+      formData.mail ||
+      formData["mail"] ||
+      formData["Mail"] ||
       formData["email"] ||
-      formData["Email"] ||
-      formData["email-address"] ||
-      formData["Email Address"] ||
       "";
 
     console.log("Email détecté :", email);
